@@ -1,2 +1,2 @@
-# scrips
+# scripts
 Linux and Ansible scripts 
