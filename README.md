@@ -6,7 +6,9 @@ The files in this repository were used to configure the network depicted below.
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the playbook file may be used to install only certain pieces of it, such as Filebeat.
 
-  - _TODO: Enter the playbook file._
+  (Ansible/elk.yml)
+  (Ansible/filebeat.yml)
+  (Ansible/metricbeat.yml)
 
 This document contains the following details:
 - Description of the Topologu
@@ -57,10 +59,10 @@ A summary of the access policies in place can be found in the table below.
 
 | Name     | Publicly Accessible | Allowed IP Addresses |
 |----------|---------------------|----------------------|
-| Jump Box |        No           |    Admin local IP    |
-| Web-1    |No, via JumpBox only |      10.0.0.4        |
-| Web-2    |No, via JumpBox only |      10.0.0.4        |
-| ELK      |No, via JumpBox only |      10.0.0.4        |
+| Jump Box |        Yes          |    Admin local IP    |
+| Web-1    |No, via JumpBox only |      10.0.0.1        |
+| Web-2    |No, via JumpBox only |      10.0.0.1        |
+| ELK      |No, via JumpBox only |      10.0.0.1        |
 
 ### Elk Configuration
 
@@ -101,13 +103,21 @@ These Beats allow us to collect the following information from each machine:
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the _____ file to _____.
-- Update the _____ file to include...
-- Run the playbook, and navigate to ____ to check that the installation worked as expected.
+- Copy the playbook file to /etc/ansible.
+- Update the hosts file to include Web-1, Web-2, and ELK IP addresses
+     (10.0.0.5, 10.0.0.6, 10.1.0.4)
+- Run the playbook, and navigate to http://10.1.0.4:5601 to check that the installation worked as expected.
 
-_TODO: Answer the following questions to fill in the blanks:_
 - _Which file is the playbook? Where do you copy it?_
+
+  - The playbook files are elk.yml, filebeat.yml, and metricbeat.yml. All of these files should be copied into the /etc/ansible folder.
+
 - _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
+
+  - The hosts file is updated to include the IP's of Web-1, Web-2, and the elk server. Adding 'elk' or 'webservers' at the end of your playbook command will specify which machine the installation is intended for.
+
 - _Which URL do you navigate to in order to check that the ELK server is running?
+
+  - After running the playbook command, navigate to http://10.1.0.4:5601 to confirm that the installation was successful.
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
