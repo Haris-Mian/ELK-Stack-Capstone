@@ -2,7 +2,7 @@
 
 The files in this repository were used to configure the network depicted below.
 
-![TODO: Update the path with the name of your diagram](Images/diagram_filename.png)
+![TODO: Update the path with the name of your diagram](Images/NetworkSecurityDiagram.png)
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the playbook file may be used to install only certain pieces of it, such as Filebeat.
 
@@ -121,4 +121,4 @@ SSH into the control node and follow the steps below:
 
   - After running the playbook command, navigate to http://10.1.0.4:5601 to confirm that the installation was successful.
 
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
+
